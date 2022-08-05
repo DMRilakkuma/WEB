@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    概念;
+      目前所学的所有的标签都是用于数据的展示
+      表弟用于用户与页面的交互
+      表单标签<from><from>在html5之前所有的表单内容都需要放在form标签对里面，
+      但是html5之后就不一定了
+
+      表单的分类
+        输入类
+            输入框
+             文本域
+         选择选择类
+         单选
+         多选
+         下拉列表
+         文件列表
+       交互类
+       按钮
+
+       输入类
+       文本框-->
+        输入框
+       <input value="king" type="text">
+      <br>
+       密码框
+        <input type="password" placeholder="请输入密码" width="900">
+        <br>
+        qq:<input type="text" value="123456" readonly>
+        <br>
+        身份证:<input type="text" value="123456" disabled>
+
+        年龄: <input type = "number" min="18" max="60" step="10">
+        电话: <input type = "number" min="18" max="60" step="10">
+
+         <!--属性:
+            value  控件的值"
+            placeholder 水印提示
+            readonly 将控件设置为只读(不可编辑)
+            disabled 控件失效，无法交互
+            name 控件的名字,通过控件的名字获取控件的值
+
+            min 最小值
+            max 最大值
+            step 步进 每一次修改的数字
+         -->
+        <form action="getUser">
+            <input type="text" value="李姐" name="name">
+            <button type="submit">提交</button>
+        </form>
+
+
+</body>
+</html>
