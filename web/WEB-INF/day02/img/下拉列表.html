@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    select：下拉框
+    option 下拉框中的内容
+    属性selected 默认被选中
+    如果option中没有value 默认提交的标签对里面的内容，否则提交value
+-->
+<form action="">
+    生肖
+    <select name="sx">
+      <option>鼠</option>
+      <option>牛</option>
+      <option>虎</option>
+      <option>兔</option>
+      <option>龙</option>
+      <option>蛇</option>
+      <option>马</option>
+      <option>羊</option>
+      <option>猴</option>
+      <option selected value="cxk">鸡</option>
+      <option>狗</option>
+      <option>猪</option>
+    </select>
+
+  <!-- multiple    将下拉列表变为多选-->
+  爱好:
+  <select name="l" multiple>
+      <option>c</option>
+      <option>t</option>
+      <option>r</option>
+      <option>l</option>
+  </select>
+  <button type="submit">提交</button>
+    分组式下拉列表
+  <select name="k" size="6">
+    <optgroup label="男">
+      <option>蔡徐坤</option>
+      <option>王一博</option>
+      <option>肖战</option>
+    </optgroup>
+    <optgroup label="女">
+        <option>迪丽热巴</option>
+        <option>马尔扎哈</option>
+        <option>小泽玛丽亚</option>
+        <option>韩红</option>
+    </optgroup>
+  </select>
+    <button type="submit">提交</button>
+</form>
+
+</body>
+</html>
