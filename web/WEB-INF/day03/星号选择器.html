@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        选择页面上所有元素
+        */
+
+        /*
+           选择器分类
+           1，元素选择器
+           *选择所有
+           id(一个页面上id值不能出现重复的）
+           标签(通过html标签的名称)
+            class.(一个标签允许有多个class,将页面上拥有相同的样式的元素分类)
+           2,关系选择器
+           3,属性选择器
+           4,伪类及伪对象选择器
+        */
+
+        * {
+            padding: 0;
+            margin: 0;
+            color: yellow;
+        }
+
+        div {
+
+            /*
+                问题: 容器的内容距离边框有一定的距离
+            */
+
+
+            width: 100%;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div>123456</div>
+<p></p>
+</body>
+</html>
