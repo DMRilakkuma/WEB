@@ -5,23 +5,58 @@
     <title>Title</title>
     <style>
         /*后代*/
-        p{
-            background-color:pink;
+        p {
+            background-color: pink;
         }
 
-        #head p{
-            background-color:blue;
+        #head p {
+            background-color: blue;
         }
+
+        #head > p {
+            border: red 2px solid;
+        }
+
+        #head > * {
+            /*子容器会继承符容器的文字样式*/
+            color: aqua;
+        }
+
+        /*相邻选择器*/
+        ul+li{
+            background-color:red;
+        }
+
+        /*兄弟相邻选择器* 找到与h2同一辈分/
+        h2~p{
+
+        }
+
 
     </style>
 </head>
 <body>
-    <div id="head">
-        <p>1</p>
-        <div>
-            <p>2</p>
-        </div>
+<div id="head">
+    <p>1</p>
+    <div>
+        <p>2</p>
     </div>
-    <p>3</p>
+</div>
+<p>3</p>
+<ul>
+    <li>熊大</li>
+    <li>熊二</li>
+    <li>熊三</li>
+    <li>熊四</li>
+    <li>熊五</li>
+</ul>
+<h2>静夜思</h2>
+<p>窗前明月光,疑是地上霜</p>
+<p>窗前明月光,疑是地上霜</p>
+<p>窗前明月光,疑是地上霜</p>
+<p>窗前明月光,疑是地上霜</p>
+<p>窗前明月光,疑是地上霜</p>
+<p>窗前明月光,疑是地上霜</p>
+<p>窗前明月光,疑是地上霜</p>
 </body>
 </html>

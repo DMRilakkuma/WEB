@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p:before {
+            /*content: url("img/1920x1080.jpg") "坤坤";
+            !*content:"坤坤";*!*/
+        }
+        /*在容器内容后面添加文字*/
+        ul>li:hover:after{
+            content:"万岁" url("img/1920x1080.jpg");
+        }
+
+       /* p{
+            color:red;
+        }
+
+        #div1 {
+            color:red;
+        }
+
+        .div1 {
+            color:red;
+        }*/
+        p,#div1,.div1{
+            color:red !important;
+        }
+
+        #p1{
+            color:green;
+        }
+
+
+        /*
+            优先级
+                id
+                属性选择器
+                class
+                后代-子代
+
+        */
+
+    </style>
+</head>
+<body>
+<p id="p1">谁不爱呢!!!</p>
+<ul>
+    <li>李姐1</li>
+    <li>李姐2</li>
+    <li>李姐3</li>
+    <li>李姐4</li>
+    <li>李姐5</li>
+</ul>
+<div id="div1">king</div>
+<a href="div1" href=""></a>
+</body>
+</html>

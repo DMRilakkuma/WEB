@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*初始状态*/
+        a{
+            color:#000;
+           /* 颜色  水平位置 垂直位置 模糊程度 (阴影部分)*/
+            box-shadow: red 0 0 20px;
+        }
+        /*获得焦点时的伪类选择器*/
+        a:hover{
+            color:aqua;
+        }
+        a:visited{
+            color:red;
+        }
+
+        a:active{
+            color:green;
+        }
+
+        div{
+            width:100px;
+            height:100px;
+            background-color:red;
+        }
+
+        div:active{
+            width:100px;
+            height:100px;
+            background-color:black;
+        }
+
+        div:hover{
+            /* 设置阴影效果*/
+            box-shadow: yellow 0 0 5px;
+        }
+
+        #inp{
+            width:548px;
+            height:44px;
+            border-radius:10px;
+            border-color:blue;
+        }
+
+        /*表单被激活*/
+        #inp:focus{
+           /* background-color:blue;*/
+            /*清除表单自带原始效果*/
+            outline:none;
+            border-color:blue;
+            border-radius:10px;
+            box-shadow:black 0 0 10px;
+        }
+
+        #baidu{
+            width:100px;
+            height:40px;
+            border-radius:10px;
+        }
+
+       /* center>*:not(a):hover{
+            border:red 10px solid;
+        }*/
+
+        ul li:last-child{
+            color:red;
+        }
+
+        ul li:first-child{
+            color:red;
+        }
+
+        tbody>tr:last-child{
+            background-color:red;
+        }
+
+        tbody>tr:first-child{
+            background-color:green;
+        }
+
+    </style>
+</head>
+<body>
+<center>
+<!--初始状态颜色为蓝色-->
+<a href="三角行.html">点我一下,惊喜不断</a>
+<div></div>
+<input type="text" id="inp">
+    <img src="img/1920x1080.jpg" width="100px" alt="">
+    <ul>
+        <li>李姐1</li>
+        <li>李姐2</li>
+        <li>李姐3</li>
+        <li>李姐4</li>
+        <li>李姐5</li>
+        <li>李姐6</li>
+        <li>李姐7</li>
+    </ul>
+</center>
+<table>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+    <tr>
+        <td>李姐1</td>
+        <td>李姐2</td>
+        <td>李姐3</td>
+        <td>李姐4</td>
+        <td>李姐5</td>
+    </tr>
+</table>
+</body>
+</html>

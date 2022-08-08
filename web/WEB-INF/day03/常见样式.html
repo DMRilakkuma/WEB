@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background-image:url(img/pwd-icons-new.png);
+            background-position: 50px 50px;
+        }
+        div {
+            width: 80%;
+            /*div的宽度不能小于300px*/
+            min-width: 300px;
+            max-width: 300px;
+            height: 20px;
+            background-color: blue;
+        }
+
+        /*背景样式*/
+        body {
+            /*背景颜色*/
+           /* background-color:pink;*/
+            /*背景图片*/
+            /*背景图标的大小小于背景的大小,产生平铺效果*/
+            /*取消平铺行为*/
+            background-repeat: no-repeat;
+            /*background-repeat:repeat-x;*/
+            /*垂直方向平铺*/
+            /*background-repeat:repeat-y;*/
+            /* 设置背景*/
+            /*设置图片大小
+                设置背景图片大小
+            */
+            /*background-size:100%;*/
+            background-size: cover ;
+            background-position:100px 100px
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

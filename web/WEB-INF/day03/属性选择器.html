@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [value]{
+            height:50px;
+        }
+        /*选择value 值 为按钮的元素*/
+        [value="按钮"]{
+            background-color: blue;
+        }
+
+        img{
+            width:200px;
+        }
+
+        /* 选择src属性值中,包含6的元素*/
+        [src*="1"]{
+            border:2px red solid;
+        }
+
+        /* 选择png格式的图片* 选择src属性值中以.png结尾的元素*/
+        /*:hover 获得焦点添加效果*/
+        [src$=".jpg"]:hover{
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" value="90"><br>
+<input type="text"><br>
+<input type="button" value="按钮"><br>
+<img src="img/1920x1080.jpg" alt="">
+<img src="img/1920x1080.jpg" alt="">
+<img src="img/1920x1080.jpg" alt="">
+</body>
+</html>
