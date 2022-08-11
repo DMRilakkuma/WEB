@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*创建计数器*/
+        .f {
+            counter-reset:aa 10;
+        }
+        p{
+            /* 在p中使用计数器aa 值的变化量为 1*/
+            counter-increment:aa 10;
+        }
+
+        p:before {
+            content:counter(aa);
+        }
+
+    </style>
+</head>
+<body>
+<h2 class="f">标题</h2>
+<p>内容</p>
+<p>内容</p>
+<p>内容</p>
+<p>内容</p>
+<p>内容</p>
+<p>内容</p>
+<p>内容</p>
+</body>
+</html>

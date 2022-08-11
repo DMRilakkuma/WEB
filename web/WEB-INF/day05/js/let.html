@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function f() {
+        // 局部变量,作用域只有这一对大括号
+        var a = 10;
+
+        b = 10;//全局变量
+    }
+    f();
+    var age = 90;
+    if (age >= 18) {
+        // var在if语句中定义的变量是全局变量
+        var s = "已经成年";
+    }
+
+    for (let i = 0; i < 1; i++) {
+        // 在if中使用var定义的变量是全局变量
+        // 在if中使用let定义的变量的局部变量
+        let j = 0;
+    }
+
+    // es6：提出1使用let
+    document.write(i);
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="f()">按钮</button>
+<a href="javascript:f()">跳转</a>
+<p id="p">pppp</p>
+<img src="img/gazi.jpg" id="img" alt="">
+<script>
+    function f() {
+        alert("123");
+    }
+
+    document.getElementById("p").onclick = function () {
+        alert("标签");
+    }
+
+    document.getElementById("img").addEventListener("dblclick",function(){
+        alert("我是一张图片")
+    })
+</script>
+</body>
+</html>

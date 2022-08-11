@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 450px;
+            height: 400px;
+            background: rgba(255, 255, 255, 1);
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
+        }
+
+        #main > div {
+            padding-top: 50px;
+        }
+
+        #main input {
+            /* background-color: rgba(255,255,255,0.1); */
+            width: 350px;
+            padding: 6px 20px 6px 6px;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        #main > div > * {
+            margin-top: 20px;
+            margin-left: 40px;
+        }
+
+        #main button {
+            border: 0;
+            background-color: #e8716d;
+            border-radius: 3px;
+            padding: 10px 35px;
+            font-size: 1rem;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 300;
+            color: #fff;
+            margin-left: 220px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        #dl {
+            display: none;
+        }
+
+        #main span {
+            color:cadetblue;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="dl">
+        <h2>登录</h2>
+        <input type="text" placeholder="邮箱">
+        <input type="password" placeholder="密码">
+        <span onclick="f()">没有账号?</span>
+        <button>登录</button>
+    </div>
+    <div id="zc">
+        <h2>注册</h2>
+        <input type="text" placeholder="名称">
+        <input type="text" placeholder="邮箱">
+        <input type="password" placeholder="密码">
+        <span onclick="f()">已有账号?</span>
+        <button>注册</button>
+    </div>
+</div>
+<script>
+    var isDl = true;
+    var dl = document.getElementById("dl");
+    var zc = document.getElementById("zc");
+
+    function f() {
+        if (isDl) {
+            dl.style.display = "none";
+            zc.style.display = "block";
+            isDl = !isDl;
+        } else {
+            zc.style.display = "none";
+            dl.style.display = "block";
+            isDl = !isDl;
+        }
+    }
+
+</script>
+</body>
+</html>

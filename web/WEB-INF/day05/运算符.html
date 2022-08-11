@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var x = 10;
+    var y = "10";
+
+    // == 比较的是值,但是不进行类型的检查
+    console.log(x == y);
+    //类型也会检查
+    console.log(x === y);
+
+    // 提供typeof检查数据类型
+    console.log(typeof 1234);
+    // + - * / % -- ++
+    var a = 10;
+    var b = 9;
+    console.log(a++ + ++b + --a + --b);
+
+    var a = 10;
+    var b = 11;
+    var c = 0;
+    var max = a > b ? (a > c ? a : c) : (b > c ? b : c)
+    console.log(max)
+</script>
+</body>
+</html>

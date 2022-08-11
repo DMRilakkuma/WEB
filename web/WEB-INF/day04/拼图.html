@@ -1,0 +1,313 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="hwq">
+    <title>按下鼠标移动div块（拼图游戏）</title>
+    <style>
+        body{
+            background: #eee;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        #menu{
+            display: block;
+            height: 18px;
+        }
+        #content{
+            width: 802px;
+            height: 602px;
+            border: 1px solid rebeccapurple;
+            margin: 0px auto;
+            position: relative;
+        }
+        .ball{
+            position:absolute;
+        }
+        .rectangle{
+            position: absolute;
+        }
+        #setting{
+            position: absolute;
+            left: 300px;
+            top: 0;
+        }
+        #difficulty{
+            position: absolute;
+            left: 200px;
+            top: 0px;
+        }
+        #reStart{
+            position: absolute;
+            left: 380px;
+            top: 0px;
+        }
+        #congratulation{
+            position: absolute;
+            left: 500px;
+            top: 0px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <select id="difficulty">
+        <option value="1" selected="selected">简单</option>
+        <option value="2">普通</option>
+        <option value="3">困难</option>
+        <option value="4">极度困难</option>
+        <option value="5">噩梦</option>
+    </select>
+    <button id="setting">设置</button>
+    <button id="reStart">重新开始</button>
+    <div id="congratulation">恭喜过关！</div>
+</div>
+<div id="content">
+
+</div>
+<script>
+    var content;
+    var setting;
+    var reStart;
+    var difficulty;
+    var congratulation;
+    var isMouseDown = false;
+    var moveTarget;//鼠标位移变量
+    var array = new Array();
+    var array2 = new Array();
+    //var offsetLeft;
+    //var offsetTop;
+    var columns;//有几列，即每行分割数（即x方向数量）
+    var rows;//有几行，即每列分割数（即y方向数量）
+    var width;//方块宽度
+    var height;//方块高度
+    var successFlag;
+
+    init();
+    function init(){
+        content = document.getElementById("content");
+        setting = document.getElementById("setting");
+        reStart = document.getElementById("reStart");
+        difficulty = document.getElementById("difficulty");
+        congratulation = document.getElementById("congratulation");
+        setDifficulty(difficulty.options[difficulty.selectedIndex].value);//设置初始难度
+        width = 800/columns;
+        height = 600/rows;
+        successFlag = false;
+        initArray();//初始化数组（数组内容为数量的位置，比如第一行第一块就是11，第一行第二块就是12，第二行第一块就是21）
+        for(var i=0;i<columns;i++){
+            for(var j=0;j<rows;j++){
+                var x = randomNumber(array.length,1);//随机取得数组下标
+                var y = array[x];//获取该下标数组内容（如随机到数组下标x是0，则y是11）
+                if(x != array[array.length-1]){//数组内容不为最后一个与最后一个交换（为移除元素做准备）
+                    array[x] = array[array.length-1];
+                    array[array.length-1] = y;
+                }
+                array.pop();//移除最后一个数组元素，并减少长度1
+                var p = y.substring(0,1);//如y是12，则p是1
+                var q = y.substring(1,2);//如y是12，则q是2
+                //初始化拼图方块
+                //var color = "rgb(" + randomNumber(256,1) + "," + randomNumber(256,1) + "," + randomNumber(256,1) + ")";
+                var div = createRectangle(width*p, height*q, width, height, "rectangle"+i+j);
+                div.style.backgroundPositionX = -1 * width * i + "px";//图片精灵
+                div.style.backgroundPositionY = -1 * height * j + "px";
+                if(p == i && q == j){//说明此位置是正确的，正确位置计数+1
+                    pushArray(y);
+                }
+                div.addEventListener("mousedown", move, false);
+            }
+        }
+        //如果简单模式初始化位置全是对的，则重新初始化，其他模式没判断，因为基本不可能，如果要判断就直接columns*rows
+        //console.log(array2);
+        if(array2.length == 12){
+            removeAttributes();
+            init();
+        }
+        congratulation.style.display = "none";//隐藏过关成功div
+    }
+
+    //重新开始和设置按钮绑定事件
+    setting.addEventListener("click", reSet, false);
+    function reSet(){
+        successFlag = false;
+        array2 = [];
+        init();
+    }
+    reStart.addEventListener("click", reSet, false);
+
+    //创建长方形，默认id和class设置为rectangle，返回该div，方便后续修改需要的属性
+    function createRectangle(x,y,width,height,id){//参数为：左上角x，左上角y，长度，宽度（高度），id
+        var div = document.createElement("div");//创建div容器（创建dom）
+        div.id = id;//赋值，id命名
+        div.setAttribute("class","rectangle");//通用身体样式
+        div.style.left = x + "px";//设置坐标
+        div.style.top = y + "px";
+        div.style.width = width + "px";//设置大小
+        div.style.height = height + "px";
+        //div.style.backgroundImage = "url('')";
+        div.style.backgroundImage = "url('1660208246216.jpg')";
+        div.style.backgroundSize = 100 * columns + "% " + 100 * rows + "%";
+        div.style.backgroundRepeat = "no-repeat";
+        document.getElementById("content").appendChild(div);//把创建的div加入容器
+        return div;
+    }
+    //创建圆形，默认id和class设置为ball，返回该div，方便后续修改需要的属性
+    // function createBall(x,y,size,id){//参数为：左上角x，左上角y，大小，id
+    //     var div = document.createElement("div");//创建div容器（创建dom）
+    //     div.id = id;//赋值，id命名
+    //     div.setAttribute("class","ball");//通用身体样式
+    //     div.style.left = x + "px";//设置坐标
+    //     div.style.top = y + "px";
+    //     div.style.width = size + "px";//设置大小
+    //     div.style.height = size + "px";
+    //     div.style.borderRadius = 50 + "%";//设置为圆
+    //     document.getElementById("content").appendChild(div);//把创建的div加入容器
+    //     return div;
+    // }
+    //随机数函数，参数为随机大小范围以及放大倍数
+    function randomNumber(i,size){
+        return Math.floor(Math.random()*i)*size;
+    }
+    //此处绑定在拼图div上，鼠标按下点住拼图div方块的时候会有位移变量（拿到位移的xy距离）
+    function move(e){
+        if(successFlag){
+            return;
+        }
+        e = e || window.event;
+        isMouseDown = true;
+        var target = e.currentTarget;
+        if(isMouseDown){
+            moveTarget = target;
+        }
+        console.log(isMouseDown);
+    }
+    //鼠标弹起控制
+    window.onmouseup = function(e){
+        if(successFlag){
+            return;
+        }
+        e = e || window.event;
+        var target = e.target;
+        isMouseDown = false;
+        if(!isMouseDown){
+            moveTarget = null;
+        }
+        //调用坐标自适应方法，方便对齐
+        coordinateAdaptive(target);
+        if(array2.length == rows*columns){
+            console.log("恭喜过关！");
+            successFlag = true;
+            array2 = [];
+            //alert("恭喜过关！");
+            congratulation.style.display = "block";
+        }
+        console.log(isMouseDown);
+    }
+    //鼠标移动控制（将拼图div同步移动）
+    window.onmousemove = function(e){
+        if(successFlag){
+            return;
+        }
+        e = e || window.event;
+        var target = moveTarget;
+        if(isMouseDown && target != null){
+            target.style.zIndex = 10;
+            var moveX = e.movementX;
+            var moveY = e.movementY;
+            target.style.left = target.offsetLeft + moveX;
+            target.style.top = target.offsetTop + moveY;
+            target.zIndex = 0;
+        }else{
+            return;
+        }
+    }
+    //坐标自适应（要将坐标完全对齐难度比较大）
+    function coordinateAdaptive(target){
+        var x = target.offsetLeft;
+        var y = target.offsetTop;
+        var id = target.id;
+        var isThere = false;
+        if(x < -1*width || y< -1*height){
+            return;
+        }
+        isThere = findInArray(array2,id.substring(9,11));//是否包含在已对齐的数组里面
+        for(var i=0;i<columns;i++){
+            for(var j=0;j<rows;j++){
+                if(Math.abs(x-width*i) < width/4 && Math.abs(y-height*j) < height/4){//当坐标小于点1/4距离的时候自动对齐
+                    target.style.left = width*i;
+                    target.style.top = height*j;
+                    if("rectangle" + i + j == id){//如果位置正确
+                        pushArray("" + i + j);//记录正确位置
+                        //console.log(array2);
+                    }else{
+                        removeArray("" + i + j);
+                        //console.log(array2);
+                    }
+                    return;//避免不必要的循环
+                }else{//没有自动对齐移除内容（可能出现对齐的元素又移开变成不对齐）
+                    if(isThere){
+                        removeArray(id.substring(9,11));
+                        isThere = false;
+                    }
+                }
+            }
+        }
+    }
+    //传入元素检验，通过则加入数组
+    function pushArray(y){
+        for(var i=0;i<array2.length;i++){
+            if(array2[i] == y){
+                return;
+            }
+        }
+        array2.push(y);
+    }
+    //删除数组元素
+    function removeArray(x){
+        for(var i=0;i<array2.length;i++){
+            if(array2[i] == x){
+                array2.splice(i,1);
+            }
+        }
+    }
+    //在一个数组里面查找是否包含该元素
+    function findInArray(arrayX, obj){
+        for(var i=0;i<arrayX.length;i++){
+            if(arrayX[i] == obj){
+                return true;
+            }
+        }
+        return false;
+    }
+    //数组初始化
+    function initArray(){//用于随机位置
+        for(var i=0;i<columns;i++){
+            for(var j=0;j<rows;j++){
+                array.push(""+ i + j);
+            }
+        }
+    }
+    //设置难度
+    function setDifficulty(value){
+        content.innerHTML = "";
+        if(value == 1){//简单
+            columns = 4,
+                rows = 3;
+        }else if(value == 2){//普通
+            columns = 5,
+                rows = 4;
+        }else if(value == 3){//困难
+            columns = 6,
+                rows = 5;
+        }else if(value == 4){//极度困难
+            columns = 8,
+                rows = 6;
+        }else{//噩梦
+            columns = 10,
+                rows = 8;
+        }
+    }
+</script>
+</body>
+</html>

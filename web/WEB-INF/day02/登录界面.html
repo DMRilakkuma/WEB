@@ -1,24 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .t{
+            overflow: auto;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            min-height: 768px;
+            cursor: default;
+            background-color: #b19e9e;
+            /*background-size: 100%;*/
+            /*background: url("gjo13q.png");*/
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+
+            width: 450px;
+            height: 400px;
+            background: rgb(207, 185, 226);
+            margin: 50px auto;
+            margin-top: 0px;
+            border-radius: 10px;
+            box-shadow: 2px 0 15px rgba(0 ,0, 0,0.25);
+        }
+        #main>div{
+            padding-top: 50px;
+        }
+        #main input{
+            /* background-color: rgba(255,255,255,0.1); */
+            width: 350px;
+            padding: 6px 20px 6px 6px;
+            font-size: 16px;
+            font-weight: 300;
+        }
+        #main>div>form>*{
+            margin-top: 20px;
+            margin-left: 40px;
+        }
+        #main button{
+            border: 0;
+            background-color: #e8716d;
+            border-radius: 3px;
+            padding: 10px 35px;
+            font-size: 1rem;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 300;
+            color: #fff;
+            margin-left: 220px;
+        }
+        a{
+            text-decoration: none;
+            color: #ccc;
+            font-size: 12px;
+            /*鼠标移动到文本上时鼠标样式为小手*/
+            cursor: pointer;
+        }
+        #dl{
+            margin-top: 100px;
+            display: none;
+        }
+        #zc{
+            margin-top: 100px;
+        }
+
+    </style>
 </head>
 <body>
-    <table>
-      <tr>
-        <td>用户名:</td>
-        <td><input type="text" name="username"></td>
-      </tr>
-      <tr>
-        <td>密码:</td>
-        <td><input type="password" name="password"></td>
-      </tr>
-      <tr>
-       <td> <button type="submit">登录</button></td>
-        <td><a href="">没有账号</a></td>
-      </tr>
-    </table>
+<div class="t">
+    <div id="main">
+        <div id="dl">
+            <form action="dl" onsubmit="return dlSub(this)">
+                <h2>登录<b style="color: #fdfdfd">92</b></h2>
+                <input type="text" name="e_" placeholder="邮箱">
+                <input type="password" name="pass" placeholder="密码">
+                <a onclick="f()">没有账号?</a>
+                <button type="submit">登录</button>
+            </form>
+        </div>
+        <div id="zc">
+            <form action="dl" onsubmit="return zcSub(this)">
+                <h2>注册<b style="color: #fdfdfd">92</b></h2>
+                <input type="text" placeholder="名称" name="name">
+                <input type="text" placeholder="邮箱" name="e_">
+                <input type="password" placeholder="密码" name="pass">
+                <a onclick="f()">已有账号?</a>
+                <button type="submit">注册</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    var isDl = true;
+    var dl = document.getElementById("dl");
+    var zc = document.getElementById("zc");
 
+    function dlSub(s){
+        var e_=s.e_.value
+        var pass=s.pass.value;
+        if (!e_.match(/^\w+@\w+\.\w+$/i)){
+            alert("邮箱格式不正确");
+            return false;
+        }
+        else if(pass.length<6){
+            alert("密码格式不正确");
+            return false;
+        }
+        else {
+            return true
+        }
+    }
+    function zcSub(s){
+        var name=s.name.value
+        var e_=s.e_.value
+        var pass=s.pass.value;
+        if(!name.match(/^[a-zA-Z0-9_-]{4,16}$/)){
+            alert("名字格式不正确");
+            return false;
+        }
+        else if (!e_.match(/^\w+@\w+\.\w+$/i)){
+            alert("邮箱格式不正确");
+            return false;
+        }
+        else if(pass.length<6){
+            alert("密码格式不正确");
+        }
+        else {
+            return true
+        }
+    }
+    function f(){
+        if(isDl){
+            dl.style.display = "none";
+            zc.style.display = "block";
+            isDl = !isDl;
+        }
+        else{
+            zc.style.display = "none";
+            dl.style.display = "block";
+            isDl = !isDl;
+        }
+    }
+
+</script>
 </body>
 </html>

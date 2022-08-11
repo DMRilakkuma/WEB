@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            border:2px silver solid;
+            padding:10px;
+            /*内边框以及边框的定义不计算在width，height*/
+            /*将内边距和以及边框的定义计算在width,height*/
+            box-sizing:content-box;
+        }
+    </style>
+</head>
+<body>
+<div>
+    李姐万岁
+</div>
+</body>
+</html>

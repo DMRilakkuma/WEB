@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ol {
+            counter-reset: section;                /* Creates a new instance of the
+                                            section counter with each ol
+                                            element */
+            list-style-type: none;
+        }
+
+        li::before {
+            counter-increment: section;            /* Increments only this instance
+                                            of the section counter */
+            content: counters(section, ".") " ";   /* Combines the values of all instances
+                                            of the section counter, separated
+                                            by a period */
+        }
+
+    </style>
+</head>
+<body>
+<ol>
+    <li>第一项
+        <ol>
+            <li>第一小项</li>
+            <li>第二小项</li>
+            <li>第三小项</li>
+        </ol>
+    </li>
+    <li>第二项
+        <ol>
+            <li>第一小项</li>
+            <li>第二小项</li>
+            <li>第三小项</li>
+        </ol>
+    </li>
+    <li>第三项
+        <ol>
+            <li>第一小项</li>
+            <li>第二小项</li>
+            <li>第三小项</li>
+        </ol>
+    </li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+全选<input type="checkbox" name="" id="">
+取反<input type="checkbox" name="" id="">
+<ul>
+    <li>李姐万岁1<input type="checkbox" name="" id=""></li>
+    <li>李姐万岁2<input type="checkbox" name="" id=""></li>
+    <li>李姐万岁3<input type="checkbox" name="" id=""></li>
+    <li>李姐万岁4<input type="checkbox" name="" id=""></li>
+    <li>李姐万岁5<input type="checkbox" name="" id=""></li>
+    <li>李姐万岁6<input type="checkbox" name="" id=""></li>
+    <li>李姐万岁7<input type="checkbox" name="" id=""></li>
+    <li>李姐万岁8<input type="checkbox" name="" id=""></li>
+    <li>李姐万岁9<input type="checkbox" name="" id=""></li>
+</ul>
+<script>
+    var s = false;
+    var arr = document.getElementsByTagName("input");
+    arr[0].addEventListener("click", function () {
+        if (s === false) {
+            f1();
+            s=!s;
+        } else {
+            f2();
+            s=!s;
+        }
+    })
+
+    arr[1].addEventListener("click",function (){
+        f3();
+    })
+
+    function f1() {
+        for (let i = 2; i < arr.length; i++) {
+            arr[i].checked = true;
+        }
+    }
+
+    function f2(){
+        for (let i = 2; i < arr.length; i++) {
+            arr[i].checked = false;
+        }
+    }
+
+    function f3() {
+        for (let i = 2; i < arr.length; i++) {
+            arr[i].checked = !arr[i].checked;
+        }
+    }
+</script>
+</body>
+</html>

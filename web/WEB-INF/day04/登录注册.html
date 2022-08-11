@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @font-face {
+            font-family: 'iconfont';  /* Project id 3576668 */
+            src: url('//at.alicdn.com/t/c/font_3576668_96688felpjf.woff2?t=1660015961233') format('woff2'),
+            url('//at.alicdn.com/t/c/font_3576668_96688felpjf.woff?t=1660015961233') format('woff'),
+            url('//at.alicdn.com/t/c/font_3576668_96688felpjf.ttf?t=1660015961233') format('truetype');
+        }
+
+        div {
+            width: 300px;
+            height: 500px;
+            border: 2px solid #ccc;
+        }
+
+        #zc{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div style="font-size: 90px;"   class="iconfont" >&#xe624;</div>
+<div id="d1">
+    <h2></h2>
+    <span onclick="f()">没有账号--注册</span>
+</div>
+<div id="zc">
+    <span onclick="f()">已有账号--登录</span>
+</div>
+<script>
+    var n = true;
+    /*拿到登录注册界面元素*/
+    var d1 = document.getElementById("d1");
+    var zc = document.getElementById("zc");
+    function f() {
+        if(n){
+            /*显示·注册页面*/
+            zc.style.display="block";
+            /*延迟登录页面*/
+            d1.style.display="none";
+            n=!n
+        }else{
+            /*显示·注册页面*/
+            d1.style.display="block";
+            /*延迟登录页面*/
+            zc.style.display="none";
+            n=!n
+        }
+    }
+</script>
+</body>
+</html>

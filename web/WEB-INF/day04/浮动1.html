@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #left {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            float: left;
+            margin-left: 100px;
+        }
+
+        #right {
+            background-color:black;
+            width:100px;
+            height:100px;
+            float: right;
+            margin-right: 100px;
+        }
+
+        #main{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div id="main" style="overflow:auto">
+    <div id="left"></div>
+    <!--在浮动的内容后面添加一个块级元素，使用clear:both;清除浮动产生的影响-->
+    <!--2.在浮动·元素的父级中添加样式overflow:auto-->
+</div>
+<div id="right"></div>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+    <style>
+        .b {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #main {
+            height: 300px;
+            background-color:black;
+            position: relative;
+        }
+
+        .a{
+            background-color:black;
+        }
+
+        #gg{
+            /*固定定位*/
+            position: fixed;
+            width: 100px;
+            height: 300px;
+            border: 1px solid yellow;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+<!--
+css中脱流有两种方式
+1,浮动
+2,定位
+    相对定位  *
+    绝对定位  *
+    固定定位  *
+    静态定位
+    粘性定位
+    在使用定位position之后 元素会多出5个属性
+    top
+    left
+    right
+    bottom
+    z-index:决定谁在上面，谁在下面(元素的层级关系)
+    1.相对定位:相对原来的位置进行定位
+    2:绝对定位:相对于浏览器发生定位,脱离文档流
+            特殊情况:一旦父容器使用了其他定位,绝对就会使用父容器左参照
+            绝对定位脱离文档流
+    3:子绝父相
+
+
+
+-->
+<div id="main">
+    <div class="div a"></div>
+    <div class="div b"></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<
+
+<div id="gg">
+    <h1>广告</h1>
+    <p>
+        治肾亏,不含糖
+    </p>
+</div>
+
+</body>
+</html>

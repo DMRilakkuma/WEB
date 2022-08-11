@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--1 将string转换为number-->
+<script>
+    var a = "11111.1323344";
+    document.write(typeof a);
+    /*a = parseInt(a);*/
+    document.write("<br>" + typeof a + "|" + a);
+    a = parseFloat(a); //转换为小数
+    document.write("<br>" + typeof a + "|" + a);
+    eval('alert("1")');  //将字符串做js代码运行
+    // 将一个string类型的字符串转换为http编码
+    document.write(encodeURI("http://www.baidu.com/?name=王大麻子"));
+    document.write(decodeURI("http://www.baidu.com/?name=%E7%8E%8B%E5%A4%A7%E9%BA%BB%E5%AD%90"));
+</script>
+</body>
+</html>

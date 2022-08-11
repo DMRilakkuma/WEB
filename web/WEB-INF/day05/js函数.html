@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="alert(f(1199))">按钮</button>
+<a href="javascript:alert(f(1888));">a标签</a>
+
+<script>
+    // function 方法名([参数列表]){
+    //     执行体
+    //     [return]
+    // }
+
+
+    // 判断是否是闰年
+    function  f(y){
+        return y%400==0||(y%4==0&&y%100!=0)?true:false;
+    }
+    alert(f(1988));
+    // function  定义方法(函数)
+    // f 方法名
+    // y 参数列表
+    // return 返回的内容
+    // {} 代码块
+
+    function  f1(){
+
+        for (let i = 0; i < arguments.length; i++) {
+            console.log(arguments[i]);
+        }
+
+        return // 换行就代表结束
+
+        // 在方法中如果没有使用return,方法执行完成以后 也会有返回结果
+        // 结果是undefined
+    }
+    alert(f1());
+
+    // 在js函数中 实际上也是一种对象,将一个对象指向一个变量
+    var f2= function(y){
+        return y%400==0||(y%4==0&&y%100!=0)?true:false;
+    }
+    alert(f2(1999));
+
+</script>
+</body>
+</html>

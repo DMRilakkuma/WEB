@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>事件分类</p>
+1.窗口事件(窗口大小改变,页面)
+2.鼠标事件(单击事件,双击事件,右键,滚轮)
+3.键盘事件(按下键盘,抬起键盘,键入)
+4.表单事件(表单提交,表单重置)
+5.对象事件(音频视频自带的事件)
+<script>
+    //键盘按下事件
+    document.onkeydown = function (e) {
+        var key = e.key;
+        console.log(e);
+        if (key === 'w') {
+            alert("上");
+        } else if (key === 'a') {
+            alert("左");
+        } else if (key === 's') {
+            alert("下");
+        }else if(key === 'd') {
+            alert("右");
+        }
+    }
+</script>
+</body>
+</html>

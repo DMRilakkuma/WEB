@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    stu = {
+        name: "李姐",
+        id: 123456,
+        age: 19,
+        play: function () {
+            //将内容显示到页面上
+            document.write("<h1>" + this.name + "是海王" + "<h1>")
+        },
+        getStu: function () {
+            document.write(this.name + this.id + this.age);
+        }
+    }
+    // 调用对象的方法
+    stu.play();
+    stu.getStu();
+</script>
+</body>
+</html>

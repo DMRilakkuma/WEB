@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            background-image: url(img/R.jpg);
+            background-size:100%;
+        }
+
+        #box1 {
+            height: 150px;
+            width: 150px;
+            position: absolute;
+        }
+
+        img {
+            height: 130px;
+            width: 150px;
+        }
+
+        #box2 {
+            height: 150px;
+            width: 150px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+    <img src="img/gazi.jpg">
+</div>
+<div id="box2">
+    <img src="img/蔡徐坤.jpg">
+</div>
+<script>
+    window.onload = function () {
+
+        var box2 = document.getElementById("box2");
+        var box1 = document.getElementById("box1");
+        var speed = 10;
+        var div = 0;//方向
+        setInterval(function () {
+            switch (dir) {
+                case 37:
+                    // alert("向左");
+                    box1.style.left = box1.offsetLeft - speed + "px";
+                    break;
+                case 39:
+                    // alert("向右");
+                    box1.style.left = box1.offsetLeft + speed + "px";
+                    break;
+                case 38:
+                    // alert("向上");
+                    box1.style.top = box1.offsetTop - speed + "px";
+                    break;
+                case 40:
+                    // alert("向下");
+                    box1.style.top = box1.offsetTop + speed + "px";
+                    break;
+                case 87:
+                    box2.style.top = box2.offsetTop - speed + "px";
+                    break;
+                case 83:
+                    box2.style.top = box2.offsetTop + speed + "px";
+                    break;
+                case 65:
+                    box2.style.left = box2.offsetLeft - speed + "px";
+                    break;
+                case 68:
+                    box2.style.left = box2.offsetLeft + speed + "px";
+                    break;
+            }
+        }, 30);
+
+        document.onkeydown = function (event) {
+            event = event || window.event;
+            // 按住ctrl键加速
+            if (event.ctrlKey) {
+                speed = 50;
+            } else {
+                speed = 10;
+            }
+            dir = event.keyCode;
+        };
+
+        document.onkeyup = function () {
+            dir = 0;
+        };
+    };
+</script>
+
+</body>
+</html>

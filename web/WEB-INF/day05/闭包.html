@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--在一个方法中将另一个方法作为返回值-->
+<script>
+    function f() {
+        var i = 10;
+        return {
+            getI: function () {
+                return i;
+            },
+            setI: function (j) {
+                i = j;
+            }
+        }
+    }
+
+/*    /!*我想在方法外面修改i的值*!/
+    var a = f();
+    a.setI(90);//调用方法f1 改变 i
+    document.write(a.getI());*/
+
+    var arr = [1,7,9,3,6,9];
+    arr.reduce(function (x, y) { //x是一个累加器 0 y遍历所有的内容
+        console.log("x"+x);
+        console.log("y"+y);
+        return x+y;
+    })
+  /*  (function (arr) {
+        return arr.reduce(function(x,y){
+            return x+ y;
+        })
+    }(arr));*/
+
+</script>
+</body>
+</html>

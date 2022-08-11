@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .gg{
+            /*display:block;*/
+            /* 隐藏但是依旧占据原来的地方*/
+            visibility:hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="gg" id="a" style="width:200px; height:300px ;background-color:antiquewhite;">
+    <h1 style="visibility:visible;">广告</h1>
+    <button onclick="f()">关闭广告</button>
+</div>
+<p onclick="f1()">页面内容</p>
+<!--<script>
+    // 拿到广告窗口
+    var g = document.getElementById("a");
+
+    function f() {
+        g.style.display = "none";
+    }
+
+    function f1() {
+        g.style.display = "block";
+    }
+</script>
+</body>
+</html>

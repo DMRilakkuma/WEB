@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#main{
+				width: 300px;
+				height: 300px;
+			}
+			#left>div,#right>div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			#center>div{
+				width: 100px;
+				height: 150px;
+				background-color: yellow;
+			}
+			#main>div{
+				float: left;
+			}
+			#main>div>div:not(#center>div:last-child){
+				margin-top: 5px;
+			}
+			#center>div:last-child{
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div id="left">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="center">
+				<div></div>
+				<div></div>
+			</div>
+			<div id="right">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</body>
+</html>

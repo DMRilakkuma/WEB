@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>菜单1</li>
+    <li>菜单2</li>
+    <li>菜单3</li>
+    <li>菜单4</li>
+    <li>菜单5</li>
+    <li>菜单6</li>
+</ul>
+
+<script>
+    // 使用标签的名字来获取页面元素
+    let arr = document.getElementsByTagName("li");
+    /*for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i])
+        // 给所有的li绑定一个点击事件
+        arr[i].onclick = function () {
+            alert(i);
+        }
+    }*/
+
+    //使用闭包解决变量污染的问题
+   /* for (var i = 0; i < arr.length; i++) {
+        arr[i].onclick = (function (i) {
+            // 使用了闭包将内部的变量取出来,防止了变量的污染
+            return function () {
+                alert(i);
+            }
+        })(i)
+    }*/
+    /*for (var i = 0; i < arr.length; i++) {
+        // 将元素的属性index 值设置为king
+        arr[i].index = i+1;
+        arr[i].onclick = function () {
+            alert(this.index);
+        }
+    }*/
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].onclick = function () {
+            alert(i+1);
+        }
+    }
+</script>
+</body>
+</html>

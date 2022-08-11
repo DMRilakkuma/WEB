@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 在js中调用方法,可以给方法传递任意数量的参数,甚至可以不用传递参数，
+    // 使用arguments获得传递的所有内容
+    function f() {
+        for (let i = 0; i < arguments.length; i++) {
+            console.log(arguments[i]);
+        }
+    }
+
+    f(109, 798, 434);
+</script>
+</body>
+</html>

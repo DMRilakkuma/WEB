@@ -8,21 +8,24 @@
         width: 800px;
         height: 500px;
       }
-      td:nth-child(2n){
-        background-color: #ccc;
+      tr:nth-child(2n)>td:nth-child(2n){
+        background-color:yellow;
+      }
+
+      tr:nth-child(2n-1)>td:nth-child(2n-1){
+        background-color:red;
       }
 
 
+
       /*设置偶数行的偶数列为黄色*/
-        td:nth-child(2n-1){
-            background-color: #ff0;
-        }
+
 
 
     </style>
 </head>
 <body>
-<table border="1">
+<table>
   <tr>
     <td></td>
     <td></td>

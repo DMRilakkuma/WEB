@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function f1(b) {
+        console.log("我是方法a")
+        return b();
+    }
+
+    f1(function () {
+        console.log("我是方法b")
+    })
+
+    // 回调和闭包的区别
+    // 闭包的本质 :在一个函数内部定义或者返回一本函数对象
+    // 回调将一个函数作为参数到另一个函数中。使用于ajax的回调
+
+</script>
+</body>
+</html>

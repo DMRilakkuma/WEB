@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    变量:
+      javascript是一门弱类型的语言,创建变量时,使用任何变量之前无序声明数据类型
+    可以直接使用变量赋值
+    <script>
+      var  name = "李姐";
+      name = '李姐';
+     /* alert(name);
+
+    let age = 19;
+      //常量
+      const sex = '增小贤';
+      // 常量值不允许改变
+      alert(sex);
+      age='李姐';
+      alert(age)*/
+
+      var a = 89;
+      /*typeof  判断数据类型*/
+      console.log(typeof a);
+      console.log(0.0/0); //nan 不是一个数值
+      console.log(1/0); //Infinity 无穷大
+      console.log(-1/0);// Infinity 无穷大
+
+      // 字符串
+      a='李姐';
+      console.log("李姐是"+typeof a);
+
+      //布尔类型
+      a = 1 > 2;
+      console.log(typeof a);
+        a = new Boolean(1);
+        console.log(typeof  a);
+
+        //对象类型
+      var student = {
+          id : 1001,
+          name : "王大麻子",
+          age : 10,
+          class:{
+              cname: "乌龟班",
+              cid:"j2205"
+          }
+      }
+      console.log(student.name);
+      console.log(student.class.cname);
+      console.log(typeof student);
+
+      var date = new Date();
+      console.log(date);
+
+      //数组类型
+      /*Object [] arr = {"234",12};*/
+
+      var a = [1,7,3,2];
+      console.log(a[2]);
+      console.log(typeof a);
+
+      a = new Array(1,2,3,4,5);
+      a[5] = 10;
+      console.log(a);
+
+      a = [[1,1],[9,4]];
+      console.log(a);
+
+      //null 表示空的对象,在内存中申请了空间,但是没有值
+      var n = null;
+      console.log(n); // null
+      console.log(typeof n);
+
+      var k;
+      console.log(k);
+      console.log(typeof k);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="inp" type="text" placeholder="请输入你的年龄">
+<button onclick="f()" type="button">提交</button>
+<script>
+    var inp = document.getElementById("inp");
+
+    function f() {
+        var age = inp.value;
+        f2(age);
+    }
+
+    function f1(age) {
+        if (age >= 18 && age <= 65) {
+            alert("快来玩呀")
+        } else if (age > 65) {
+            alert("不太合适")
+        } else {
+            alert("未成年禁止入内")
+        }
+    }
+
+    function f2(s) {
+        switch (s) {
+            case 1:
+                alert("春");
+                break;
+            case 2:
+                alert("夏")
+                break;
+            case 3:
+                alert("秋");
+                break;
+            case 4:
+                alert("冬");
+                break;
+            default:
+                alert("输入错误");
+        }
+    }
+
+    function f3() {
+        var arr = [1, 5, 7, 9];
+
+        var obj = {
+            name:"cxk",
+            play:"ctrl"
+        }
+        /*for (let i = 0; i < 10; i++) {
+            console.log(arr[i]);
+        }*/
+
+        for (var a in obj) {
+            // 遍历数组a是下标
+            // 遍历的是 普通对象 a->对象
+            console.log(obj[a]);
+        }
+    }
+
+    f3();
+</script>
+</body>
+</html>
